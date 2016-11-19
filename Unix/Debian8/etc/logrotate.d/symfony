@@ -1,0 +1,19 @@
+/var/www/la-croix/current/app/logs/*.log {
+  su root root
+  daily
+	missingok
+	rotate 1
+	copytruncate
+	notifempty
+	create 0640 www-data www-data
+	nosharedscripts
+	prerotate
+	if [ -d /etc/logrotate.d/symfony ]; then \
+            run-parts /etc/logrotate.d/symfony; \
+        fi; \
+    endscript
+    postrotate
+        [ ! -f /var/run/apache2/apache2.pid ] || kill -USR1 `cat /var/run/apache2/apache2.pid`
+        /usr/local/admintools/uploadlogstoS3.sh $1 &> /var/log/custom/symfony_logrotate.log
+    endscript
+}

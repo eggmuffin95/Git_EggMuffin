@@ -1,0 +1,42 @@
+output:
+  logstash:
+    enabled: true
+
+  hosts:
+    logstash.aws.la-croix.com:5044
+
+  tls:
+    certificate: /etc/pki/tls/certs/filebeat.crt
+
+    timeout: 15
+
+filebeat:
+  prospectors:
+    -
+      paths:
+        - /var/log/daemon.log
+        - /var/log/auth.log
+        - /var/log/mail.info
+      document_type: syslog
+
+    -
+      paths:
+        - "/var/log/apache2/*.access.log"
+        - "/var/log/apache2/*.access_log"
+      document_type: apache_access
+
+    -
+      paths:
+        - "/var/log/apache2/*.error.log"
+        - "/var/log/apache2/*error._log"
+      document_type: apache_error
+
+    -
+      paths:
+        - "/var/log/exim4/mainlog"
+      document_type: exim-log
+
+    -
+      paths:
+        - "/var/log/kern.log"
+      document_type: kern-log

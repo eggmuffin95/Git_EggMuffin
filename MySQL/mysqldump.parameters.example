@@ -1,0 +1,6 @@
+dbhost="localhost";
+username="root";
+dbname="test";
+outfilename="test.sql";
+logfilename="/var/log/mysqldump.log";
+errlogfilename="/var/log/mysqldump.error.log";

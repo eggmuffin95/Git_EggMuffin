@@ -1,0 +1,43 @@
+# Ajout RSA Key auto
+ssh-add -k ~/.ssh/YD_AWS_PROD_BAYARD.pem
+ssh-add -k ~/.ssh/id_rsa
+# Alias SSH
+alias sshsquid='ssh -A ubuntu@ec2-52-210-37-127.eu-west-1.compute.amazonaws.com'
+alias sshapi='ssh -A ubuntu@54.154.214.147'
+alias sshmilandev='ssh -A admin@52.208.49.19'
+alias sshovh14='ssh -A root@ovh14.bayardev.com'
+alias sshovh16='ssh -A root@ovh16.bayardev.com'
+alias sshovh22='ssh -A root@ovh22-1.bayardev.com'
+alias sshovh23='ssh -A root@ovh23-1.bayardev.com' 
+alias sshxinet='ssh -A root@172.27.226.110'
+alias sshlacroix='ssh -A ec2-user@bastion.aws.la-croix.com'
+alias sshbayam='ssh -A ubuntu@52.49.15.219'
+alias sshprions='ssh -A ubuntu@52.50.165.242'
+alias sshadmin='ssh -A ec2-user@52.49.133.168'
+alias sshj2s='ssh -A root@172.27.226.238'
+alias sshweb='ssh -A ec2-user@54.194.108.94'
+alias l='ls -AlF --color=auto'
+alias ll='ls -alF --color=auto'
+alias resweb='service apache2 restart && service apache2 status --color=auto'
+export TERM=xterm-color
+alias upgradedb='/usr/libexec/locate.updatedb'
+alias grep='grep --color=always'
+alias egrep='egrep --color=always'
+# Prompt
+RED="\[\033[0;31m\]"
+GREEN="\[\033[32m\]"
+BROWN="\[\033[33m\]"
+WHITE="\[\033[00m\]"
+FLASHY="\e[32;1m\]"
+PS1="$GREEN\h$WHITE-$RED\$(date +%H:%M)$WHITE-$GREEN\u$WHITE-$BROWN\$(ipconfig getifaddr en0)$RED\w$WHITE# "
+export PATH="/apt/local/bin:/opt/local/sbin:$PATH"
+export EDITOR=vi
+
+##
+# Your previous /Users/eggmuffin/.bash_profile file was backed up as /Users/eggmuffin/.bash_profile.macports-saved_2016-02-15_at_11:55:53
+##
+
+# MacPorts Installer addition on 2016-02-15_at_11:55:53: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

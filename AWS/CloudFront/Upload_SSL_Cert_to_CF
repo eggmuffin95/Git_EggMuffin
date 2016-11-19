@@ -1,0 +1,1 @@
+aws iam upload-server-certificate --server-certificate-name full.qualified.domain.name --certificate-body file://domainname.crt --private-key file://domainname.pem --certificate-chain file://intermediaire.pem --path /cloudfront/

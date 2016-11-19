@@ -1,0 +1,48 @@
+
+
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          s3logrotate
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# X-Interactive:     true
+
+# chkconfig: 345 79 20
+# description: rotates the log files before shutdown
+
+start () {
+        true
+        RETVAL=$?
+        [ $RETVAL = 0 ] && touch /var/run/s3logrotate
+        return $RETVAL
+}
+
+stop () {
+          #We do this 3 times to make sure everything goes through .2.gz and once for luck...
+        logrotate -f /etc/logrotate.d/*
+        logrotate -f /etc/logrotate.d/*
+        logrotate -f /etc/logrotate.d/*
+        RETVAL=$?
+        [ $RETVAL = 0 ] && rm -rf /var/run/s3logrotate
+}
+
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart)
+        stop
+        start
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart}"
+esac
+
+exit 0
+
+### END INIT INFO
