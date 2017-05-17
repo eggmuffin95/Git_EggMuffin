@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "masterDnsNamePrefix": {
+            "value": "yd-dcos-labmgmt"
+        },
+        "agentDnsNamePrefix": {
+            "value": "yd-dcos-labagents"
+        },
+        "agentCount": {
+            "value": 3
+        },
+        "agentVMSize": {
+            "value": "Standard_D2"
+        },
+        "linuxAdminUsername": {
+            "value": "y.daniel"
+        },
+        "orchestratorType": {
+            "value": "DCOS"
+        },
+        "masterCount": {
+            "value": 3
+        },
+        "sshRSAPublicKey": {
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVdMqlZI2sPcWW5dJgHpr9pXB6M710Rs8lCXJdk4IPkOPdZP2JxnkRvc1Cmpj/BO3JNTQtYDkU4F8SBFzKM+nbd2Dc4V1ewgc9jpTxISgQ4AeknzmX9aI6kol1dGecYnn4fbWUaEBrg98aQUOejXtv3KH9+e1QcHXfXz3NzyVfLxJW0mwKiqOCZz+9jN+e8wMr4wRRVpv7xhsJhOlvpfp4GxVkjXWGo823OapdjYfaEa3ZSXTY1DXbfEA4Mk5qLYmLBXztpY1ZLNLba70NlzCfraztCnjh4TCfuzFAEjs2bZ2mDwepNZYvu6/QeK7GmLQ8GRiVSYmkKkGP9vDx1PrT"
+        },
+        "enableDiagnostics": {
+            "value": false
+        }
+    }
+}
